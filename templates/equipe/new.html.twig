@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Equipe{% endblock %}
+
+{% block body %}
+    <h1>Ajouter Equipe</h1>
+
+    {{ include('equipe/_form.html.twig') }}
+
+    <a href="{{ path('equipe_index') }}">Retour</a>
+{% endblock %}
