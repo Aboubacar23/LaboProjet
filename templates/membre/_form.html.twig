@@ -1,4 +1,58 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>RegistrationForm_v1 by Colorlib</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="{{asset('formulaire/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css')}}">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="{{asset('formulaire/css/style.css')}}">
+	</head>
+
+	<body> 
+        <div class="wrapper" style="background-image: url('{{asset("formulaire/images/bg-registration-form-1.jpg")}}');">
+			<div class="inner">
+				<div class="image-holder">
+					<img src="{{asset('formulaire/images/registration-form-1.jpg')}}" alt="">
+				</div>
+				{{ form_start(form) }}
+					<h3>Ajouter un Membre</h3>
+					<div class="form-group">
+                        <input class="form-control" {{ form_widget(form.Cin,{'attr':{'placeholder':'Cin'}})}}
+                        <input class="form-control"{{ form_widget(form.Nom,{'attr':{'placeholder':'Nom'}}) }}
+					</div>
+                    <div class="form-group">
+                         <input class="form-control" {{ form_widget(form.Prenom,{'attr':{'placeholder':'Prenom'}})}}
+                        <input class="form-control"{{ form_widget(form.Age,{'attr':{'placeholder':'Age'}}) }}
+    				</div>
+                      <div class="form-group">
+                        <input class="form-control" {{ form_widget(form.Email,{'attr':{'placeholder':'Email'}})}}
+                        <input class="form-control"{{ form_widget(form.Adresse,{'attr':{'placeholder':'Adresse'}}) }}
+                       
+					</div>
+					<div class="form-wrapper">
+                      <div class="form-control">
+                       {{ form_widget(form.Statut,{'attr':{'placeholder':'Statut'}})}}
+                       </div>
+					</div>
+					<div class="form-wrapper">
+                    <div class="form-control">
+						{{ form_widget(form.Equipe,{'attr':{'placeholder':'Equipe'}})}}
+                        </div>
+					</div>
+                    	<div class="form-wrapper">
+                        <div class="form-control">
+						  {{ form_widget(form.Etablissement,{'attr':{'placeholder':'Etablissement'}})}}
+                          </div>
+					</div>
+					
+					<button class="btn">{{ button_label|default('Ajouter') }}</button>
+				{{ form_end(form) }}
+                
+			</div>
+		</div>  
+	</body>
+</html>
