@@ -39,6 +39,7 @@ class MembreController extends AbstractController
             $entityManager->persist($membre);
             $entityManager->flush();
 
+            $this->addFlash('success', 'le membre à été ajouter');
             return $this->redirectToRoute('membre_index');
         }
 

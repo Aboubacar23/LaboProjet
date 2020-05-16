@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>RegistrationForm_v1 by Colorlib</title>
+		<title>Ajout d'un membre</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<!-- MATERIAL DESIGN ICONIC FONT -->
@@ -13,10 +13,10 @@
 	</head>
 
 	<body> 
-        <div class="wrapper" style="background-image: url('{{asset("formulaire/images/bg-registration-form-1.jpg")}}');">
+        <div class="wrapper" style="background-image: url('{{asset("formulaire/images/img1.png")}}');">
 			<div class="inner">
 				<div class="image-holder">
-					<img src="{{asset('formulaire/images/registration-form-1.jpg')}}" alt="">
+					<img src="{{asset('formulaire/images/img2.jpeg')}}" alt="">
 				</div>
 				{{ form_start(form) }}
 					<h3>Ajouter un Membre</h3>
@@ -49,7 +49,7 @@
                           </div>
 					</div>
 					
-					<button class="btn">{{ button_label|default('Ajouter') }}</button>
+					<button class="btn btn-primary btn-lg btn-block">{{ button_label|default('Ajouter') }}</button>
 				{{ form_end(form) }}
                 
 			</div>
