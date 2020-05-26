@@ -1,0 +1,29 @@
+{% extends 'base_user.html.twig' %}
+
+{% block title %}Annonce index{% endblock %}
+
+{% block body %}
+    <h1>Annonces</h1>
+
+    <table>
+        <thead>
+       
+        <tbody>
+        {% for annonce in annonces %}
+            <tr>
+                <td>{{ annonce.id }}</td>
+                <td>{{ annonce.Titre }}</td>
+                <td>{{ annonce.Contenu }}</td>
+                <td>{{ annonce.DateAjout ? annonce.DateAjout|date('Y-m-d') : '' }}</td>
+        
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas d'annonce</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

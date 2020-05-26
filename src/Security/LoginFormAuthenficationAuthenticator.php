@@ -96,7 +96,7 @@ class LoginFormAuthenficationAuthenticator extends AbstractFormLoginAuthenticato
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('index'));
+        return new RedirectResponse($this->urlGenerator->generate('adminindex'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
