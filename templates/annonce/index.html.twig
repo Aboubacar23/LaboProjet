@@ -3,7 +3,8 @@
 {% block title %}Annonce index{% endblock %}
 
 {% block body %}
-    <h1>Annonce index</h1>
+   <div>
+    <h1>Les  annonces</h1>
 
     <table class="table">
         <thead>
@@ -12,7 +13,7 @@
                 <th>Titre</th>
                 <th>Contenu</th>
                 <th>Date_ajout</th>
-                <th>actions</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -23,17 +24,18 @@
                 <td>{{ annonce.Contenu }}</td>
                 <td>{{ annonce.DateAjout ? annonce.DateAjout|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('annonce_show', {'id': annonce.id}) }}">show</a>
-                    <a href="{{ path('annonce_edit', {'id': annonce.id}) }}">edit</a>
+                    <a href="{{ path('annonce_show', {'id': annonce.id}) }}"><i class="fas fa-eye"></i></a></td>
+                   <td> <a href="{{ path('annonce_edit', {'id': annonce.id}) }}"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">la table annonce est vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('annonce_new') }}">Create new</a>
+    <a href="{{ path('annonce_new') }}">Ajouter une Annonce</a>
+    </div>
 {% endblock %}
