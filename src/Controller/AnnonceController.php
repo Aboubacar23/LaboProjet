@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Annonce;
 use App\Form\AnnonceType;
-use App\Repository\AnnonceRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +18,22 @@ class AnnonceController extends AbstractController
     /**
      * @Route("/", name="annonce_index", methods={"GET"})
      */
-    public function index(AnnonceRepository $annonceRepository): Response
+    public function index(Request $request, PaginatorInterface $paginatorInterface): Response
     {
+        $annonce = new Annonce();
+        $donnees = $this->getDoctrine()->getRepository(Annonce::class)->findAll();
+        
+         $annonce = $paginatorInterface->paginate(
+
+            $donnees, // les données de l'annonce
+            $request->query->getInt('page',1), // la page par defaut 1 
+            5 // nombre d'élement à afficher
+
+
+         );
+
         return $this->render('annonce/index.html.twig', [
-            'annonces' => $annonceRepository->findAll(),
+            'annonces' => $annonce,
         ]);
     }
 

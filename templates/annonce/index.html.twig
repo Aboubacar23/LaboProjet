@@ -33,9 +33,11 @@
                 <td colspan="5">la table annonce est vide</td>
             </tr>
         {% endfor %}
+      
         </tbody>
     </table>
-
+      {{ knp_pagination_render( annonces )}}
+      
     <a href="{{ path('annonce_new') }}">Ajouter une Annonce</a>
     </div>
 {% endblock %}

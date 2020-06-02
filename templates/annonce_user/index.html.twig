@@ -5,25 +5,24 @@
 {% block body %}
     <h1>Annonces</h1>
 
-    <table>
-        <thead>
-       
-        <tbody>
+    
         {% for annonce in annonces %}
-            <tr>
-                <td>{{ annonce.id }}</td>
-                <td>{{ annonce.Titre }}</td>
-                <td>{{ annonce.Contenu }}</td>
-                <td>{{ annonce.DateAjout ? annonce.DateAjout|date('Y-m-d') : '' }}</td>
+            
+            
+               <a href="{{path('details_annonce',{'id': annonce.id})}}"> {{ annonce.Titre }} </a><br/>
+                {{ annonce.DateAjout ? annonce.DateAjout|date('Y-m-d') : '' }} </br>
         
-            </tr>
+            <br/>
+            
         {% else %}
-            <tr>
-                <td colspan="5">Pas d'annonce</td>
-            </tr>
+        
+               <p>Pas d'annonce</p>
+            
         {% endfor %}
-        </tbody>
-    </table>
+     
+
+    <br>
+    {{ knp_pagination_render( annonces )}}
 
 
 {% endblock %}
