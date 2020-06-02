@@ -9,7 +9,10 @@
         {% for annonce in annonces %}
             
             
-               <a href="{{path('details_annonce',{'id': annonce.id})}}"> {{ annonce.Titre }} </a><br/>
+               <a href="{{path('details_annonce',{'id': annonce.id})}}"
+                style="color:blue;"
+                 style="text-decoration-line  : overline ;"
+                > {{ annonce.Titre }} </a><br/>
                 {{ annonce.DateAjout ? annonce.DateAjout|date('Y-m-d') : '' }} </br>
         
             <br/>

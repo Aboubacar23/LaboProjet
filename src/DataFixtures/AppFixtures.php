@@ -63,7 +63,7 @@ class AppFixtures extends Fixture
          for($i=1; $i <=1000 ; $i++)
             {
                 $annonce =new Annonce();
-                $annonce->setTitre($faker->words(4, true));
+                $annonce->setTitre($faker->words(8, true));
                 $annonce->SetContenu($faker->realText($maxNbChars = 200, $indexSize = 2));
                 $annonce->setDateAjout($faker->dateTime);
         

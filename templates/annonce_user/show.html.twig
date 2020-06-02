@@ -8,15 +8,14 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Titre</th>
                 <td>{{ annonce.Titre }}</td>
-            </>
+                </tr>
             <tr>
-                <th>Contenu</th>
+             
                 <td>{{ annonce.Contenu }}</td>
             </tr>
             <tr>
-                <th>Date_ajout</th>
+              
                 <td>{{ annonce.DateAjout ? annonce.DateAjout|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
