@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Publication;
 use App\Form\PublicationType;
-use App\Repository\PublicationRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,10 +19,21 @@ class PublicationController extends AbstractController
     /**
      * @Route("/", name="publication_index", methods={"GET"})
      */
-    public function index(PublicationRepository $publicationRepository): Response
+    public function index(Request $request, PaginatorInterface $paginatorInterface): Response
     {
+        $publication = new Publication();
+
+        $donnee = $this->getDoctrine()->getRepository(Publication::class)->findAll();
+
+        $publication = $paginatorInterface->paginate(
+            $donnee,
+            $request->query->getInt('page',1),
+            5
+
+        );
+
         return $this->render('publication/index.html.twig', [
-            'publications' => $publicationRepository->findAll(),
+            'publications' => $publication,
         ]);
     }
 

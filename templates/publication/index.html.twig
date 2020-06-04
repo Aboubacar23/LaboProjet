@@ -13,7 +13,7 @@
                 <th>Auteur</th>
                 <th>Document</th>
                 <th>DatePublication</th>
-                <th>actions</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -38,5 +38,7 @@
         </tbody>
     </table>
 
+        {{ knp_pagination_render( publications )}}
+        
     <a href="{{ path('publication_new') }}">Ajouter Publication</a>
 {% endblock %}
