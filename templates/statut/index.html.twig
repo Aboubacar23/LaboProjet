@@ -3,14 +3,14 @@
 {% block title %}Statut index{% endblock %}
 
 {% block body %}
-    <h1>Statut index</h1>
+    <h1>La liste des Statuts</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
-                <th>actions</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -19,17 +19,18 @@
                 <td>{{ statut.id }}</td>
                 <td>{{ statut.Nom }}</td>
                 <td>
-                    <a href="{{ path('statut_show', {'id': statut.id}) }}">show</a>
-                    <a href="{{ path('statut_edit', {'id': statut.id}) }}">edit</a>
+                    <a href="{{ path('statut_show', {'id': statut.id}) }}"><i class="fas fa-eye"></i></a>
+                    </td>
+                    <td><a href="{{ path('statut_edit', {'id': statut.id}) }}"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">la liste est vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('statut_new') }}">Create new</a>
+    <a href="{{ path('statut_new') }}">Ajouter un membre</a>
 {% endblock %}

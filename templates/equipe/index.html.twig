@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Equipe index{% endblock %}
+{% block title %}la liste des equipes{% endblock %}
 
 {% block body %}
-    <h1>Equipe index</h1>
+    <h1>La liste des équipes</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
-                <th>actions</th>
+               
             </tr>
         </thead>
         <tbody>
@@ -19,8 +19,10 @@
                 <td>{{ equipe.id }}</td>
                 <td>{{ equipe.Nom }}</td>
                 <td><a href="{{ path('equipe_show', {'id': equipe.id}) }}"><i class="fas fa-eye"></i></a>
-                <a href="{{ path('equipe_edit', {'id': equipe.id}) }}"><i class="fas fa-edit"></i></a>
-                <a href="{{ path('equipe_delete', {'id': equipe.id}) }}"><i class="fas fa-trash-alt"></i></a>
+                </td>
+                <td><a href="{{ path('equipe_edit', {'id': equipe.id}) }}"><i class="fas fa-edit"></i></a>
+                </td>
+                <td><a href="{{ path('equipe_delete', {'id': equipe.id}) }}"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         {% else %}

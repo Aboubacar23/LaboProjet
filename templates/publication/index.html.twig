@@ -3,7 +3,7 @@
 {% block title %}Publication index{% endblock %}
 
 {% block body %}
-    <h1>Publication index</h1>
+    <h1>La liste des publications</h1>
 
     <table class="table">
         <thead>
@@ -25,17 +25,18 @@
                 <td><a href="{{asset('document_publication/' ~ publication.document)}}">{{publication.document}}</a></td>
                 <td>{{ publication.DatePublication ? publication.DatePublication|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('publication_show', {'id': publication.id}) }}">show</a>
-                    <a href="{{ path('publication_edit', {'id': publication.id}) }}">edit</a>
+                    <a href="{{ path('publication_show', {'id': publication.id}) }}"><i class="fas fa-eye"></i></a>
+                   </td>
+                   <td> <a href="{{ path('publication_edit', {'id': publication.id}) }}"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">La liste est vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('publication_new') }}">Create new</a>
+    <a href="{{ path('publication_new') }}">Ajouter Publication</a>
 {% endblock %}
